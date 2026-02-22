@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm, earthy, sophisticated — ember/coffee palette */
+  --color-brand: #5c4033;
+  --color-brand-light: #8b6914;
+  --color-brand-dark: #3d2a22;
+  --color-accent: #c17f59;
+  --color-surface: #faf8f5;
+  --color-surface-alt: #f0ebe3;
+  --color-text: #2c2420;
+  --color-text-muted: #6b5d54;
+  --color-border: #e5ddd4;
+  --color-success: #22c55e;
+  --color-error: #dc2626;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  body {
+    @apply font-body text-text bg-surface antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-brand-dark;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  @apply absolute left-4 top-4 -translate-y-16 bg-brand text-white px-4 py-2 rounded focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-accent z-[100];
+}
